@@ -185,7 +185,7 @@ MainGameLoop:
     lda $0210
     cmp #$be
     beq :+
-    lda $0000
+    lda $0005
     cmp #$01
     bne :+
     lda #$01
@@ -195,7 +195,7 @@ MainGameLoop:
     lda $0210
     cmp #$08
     beq :+
-    lda $0001
+    lda $0004
     cmp #$01
     bne :+
     lda #$02
@@ -206,7 +206,7 @@ MainGameLoop:
     lda $0224
     cmp #$08
     beq :+
-    lda $0004
+    lda $0001
     cmp #$01
     bne :+
     lda #$02
@@ -216,7 +216,7 @@ MainGameLoop:
     lda $0224
     cmp #$be
     beq :+
-    lda $0005
+    lda $0000
     cmp #$01
     bne :+
     lda #$01
@@ -262,12 +262,14 @@ RightPaddleCheck:
     ldx $0234
 :
     ;check if the ball collides with the bar(ball being in same y range as the paddle)
-    lda $0204
+    lda $0200
+    adc #$0f
     sty $0101
     cmp $0101
     bcc EndHorChk ;as owo is higher than the paddle
     ;else check bottom end
     lda $0200
+    sbc #$08
     stx $0101
     cmp $0101
     bcc :+
@@ -333,6 +335,7 @@ PaletteData:
 
 Sprites:
     ;OwO 0x00 - 0x0f
+    ;middle height 78/80
     .byte $78,$00,$00,$76
     .byte $78,$00,$00,$82
     .byte $80,$01,$00,$78
