@@ -1,0 +1,5 @@
+0x0000 - 0x0007 -> gamepad 1 controls
+0x0008 -> left bar up if true
+0x0009 -> right bar up if true
+0x000A -> level number
+0x000B - 0x000C -> ball direction vectors
