@@ -358,4 +358,4 @@ Sprites:
     .word RESET
 
 .segment "CHARS" 
-    .incbin "res/powong.chr"
+    .incbin "../res/powong.chr"
